@@ -6,15 +6,19 @@ import mallpackage.ShoeStore;
 import interfaces.IStoreLogo;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
-    private static final Path filePath = Paths.get("C:\\FannieProjects\\shopping-mall-project\\mall-project\\shoe.txt");
+    private static final Path filePath = Paths.get("C:\\FannieProjects\\vinci-mall-project\\mall-project\\shoes.txt");
 
-    public static void main(String[] args) {
-        //Class Objects
+    public static void main(String[] args) throws IOException {
+
+
+
         //Greetings
         System.out.println(greeting());
 
@@ -24,7 +28,27 @@ public class Main {
         //Register Person
         register();
 
+        //CRUD Implementation here..
+        String welcome = "Welcome to Files!";
+        System.out.println(welcome);
 
+        //Create
+        System.out.println("\nCalling the create file method.");
+        createAFile();
+
+        //Update
+        System.out.println("\nCalling the update file method.");
+        writeAFile();
+
+        //Read
+        System.out.println("\nCalling the read file method.");
+        readAFile();
+
+        //Delete
+        //System.out.println("\nCalling the delete  file method.");
+        //deleteAFile();
+
+        //Class Objects
         //Object 1 - BookStore
         BookStore bookStore1 = new BookStore("DJBM123", "Amazon", 579, "ABCID12365", "Maria", 358);
         BookStore bookStore2 = new BookStore("DJBM1456", "Barn & Nobel", 468, "ABCID143565", "Maria", 169);
@@ -154,7 +178,10 @@ public class Main {
 
 
             }
+
+
         }
+
     }
 
 
@@ -204,5 +231,46 @@ public class Main {
         return input.nextInt();
     }
 
+    //CRUD Declaration
+    //Create
+    public static void createAFile() {
+        try {
+            Files.createFile(filePath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-}
+    //Read
+    public static void readAFile() {
+        String temp;
+        try {
+            temp = Files.readString(filePath);
+            System.out.println(temp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Update
+    public static void writeAFile() {
+        try {
+            Files.writeString(filePath, "This is the end my Friend...");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Delete
+// public static void deleteAFile() throws IOException {
+//System.out.println("Do you want to delete the file");
+//        System.out.println("Please say yes or no....");
+//        Scanner scanner = new Scanner(System.in);
+//        String delete = scanner.next();
+//        if (delete.equals("yes")) {
+//        Files.delete(filePath);
+        //}else {
+        // System.out.println("OK, you chose not to delete. :)");
+       // }
+    }
+
