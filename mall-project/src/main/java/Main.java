@@ -6,15 +6,14 @@ import mallpackage.ShoeStore;
 import interfaces.IStoreLogo;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class Main {
+    private static final Path filePath = Paths.get("C:\\FannieProjects\\shopping-mall-project\\mall-project\\shoe.txt");
 
-
-
-    public static void main (String []args) {
+    public static void main(String[] args) {
         //Class Objects
         //Greetings
         System.out.println(greeting());
@@ -24,9 +23,11 @@ public class Main {
 
         //Register Person
         register();
+
+
         //Object 1 - BookStore
-        BookStore bookStore1 = new BookStore("DJBM123","Amazon",579,"ABCID12365", "Maria", 358 );
-        BookStore bookStore2 = new BookStore("DJBM1456","Barn & Nobel",468,"ABCID143565", "Maria", 169 );
+        BookStore bookStore1 = new BookStore("DJBM123", "Amazon", 579, "ABCID12365", "Maria", 358);
+        BookStore bookStore2 = new BookStore("DJBM1456", "Barn & Nobel", 468, "ABCID143565", "Maria", 169);
 
         //Object 2 - ShoeStore
         ShoeStore shoeStore1 = new ShoeStore("MARI34565", "Jacab Store", 256, "XYZ234987ADM", "Jacob", 58, true);
@@ -34,9 +35,9 @@ public class Main {
         ShoeStore shoeStore3 = new ShoeStore("MARI3896565", "DJ Store", 286, "XYZ2348767ADM", "Jacob", 82, true);
 
         //Object 3 - ToyStore
-        ToyStore toyStore1 = new ToyStore("TXMN123467", "Baba Store",345, "NBM45639", "Baba Active+", "Toys", 5789);
-        ToyStore toyStore2 = new ToyStore("TXKN123467", "Steve Store",145, "NBM78639", "DJ Active+", "Toys and Books", 5929);
-        ToyStore toyStore3 = new ToyStore("TXPN123467", "Bob Store",365, "NBM458749", "Maria Active+", "Toys, + Books, + and Food", 4589);
+        ToyStore toyStore1 = new ToyStore("TXMN123467", "Baba Store", 345, "NBM45639", "Baba Active+", "Toys", 5789);
+        ToyStore toyStore2 = new ToyStore("TXKN123467", "Steve Store", 145, "NBM78639", "DJ Active+", "Toys and Books", 5929);
+        ToyStore toyStore3 = new ToyStore("TXPN123467", "Bob Store", 365, "NBM458749", "Maria Active+", "Toys, + Books, + and Food", 4589);
 
 
         System.out.println("Welcome to the Shopping Mall!");
@@ -56,10 +57,9 @@ public class Main {
         System.out.println(toyStore3);
 
 
-
         //Viewing Stores
         while (true) {
-            switch ( pickStore()){
+            switch (pickStore()) {
                 case 1:
                     System.out.println("You are in the BookStore!");
                     System.out.println(bookStore1);
@@ -77,16 +77,85 @@ public class Main {
                     System.out.println(toyStore2);
                     System.out.println(toyStore3);
                     break;
+
                 case 4:
+                    //Customer purchase list using List
+                    System.out.println("Maria Purchased Items below");
+                    ArrayList<String> mariaPurchasedItems = new ArrayList<String>();
+                    mariaPurchasedItems.add("DJ Shoe");
+                    mariaPurchasedItems.add("Whale Toy");
+                    mariaPurchasedItems.add("Snail Story Book ");
+                    mariaPurchasedItems.add("Algeria cultural history book ");
+                    System.out.println(mariaPurchasedItems);
+
+                case 5:
+                    System.out.println("Adam purchased items for the season ");
+                    HashSet<String>  adamPurchasedItems= new HashSet<String>();
+                    adamPurchasedItems.add("RB Shoes");
+                    adamPurchasedItems.add("PJ Books");
+                    adamPurchasedItems.add("KB Books");
+                    adamPurchasedItems.add("PJ Books");
+                    adamPurchasedItems.add("Killer Whale Toy");
+                    adamPurchasedItems.add("Filp Flops");
+                    adamPurchasedItems.add("Killer Whale Toy");
+                    adamPurchasedItems.add("K Book");
+                    adamPurchasedItems.add("NIKE Shoes");
+                    adamPurchasedItems.add("Lion Toy");
+                    adamPurchasedItems.add("MonkeyToy");
+                    adamPurchasedItems.add("Truck Toy");
+                    adamPurchasedItems.add("KMZ Book");
+                    adamPurchasedItems.add("Chess Toy");
+                    adamPurchasedItems.add("Train Toy");
+                    adamPurchasedItems.add("Bob the Builder");
+                    adamPurchasedItems.add("PJ Books");
+                    adamPurchasedItems.add("Killer Whale Toy");
+                    System.out.println(adamPurchasedItems);
+
+                case 6:
+                    System.out.println("Available Inventory Items in Stores");
+                    HashMap<String, Integer> inventory = new HashMap<String, Integer>();
+
+                    // Add keys and values (Country, City)
+                    inventory.put("NIKE Shoe", 567);
+                    inventory.put("Class Shoe", 6577);
+                    inventory.put("Fila Shoe", 434);
+                    inventory.put("Puma Shoe", 677);
+                    inventory.put("Cat Shoe", 556);
+                    inventory.put("Jungle Shoe", 567);
+                    inventory.put("Summer Shoe", 587);
+                    inventory.put("Phil Books", 907);
+                    inventory.put("Fiction Books", 667);
+                    inventory.put("Cooking Books", 569);
+                    inventory.put("Handy Repair Books", 898);
+                    inventory.put("Academic Books", 247);
+                    inventory.put("Math Books", 673);
+                    inventory.put("Epistemology Books", 784);
+                    inventory.put("Dictionaries", 674);
+                    inventory.put("Yoga Books", 821);
+                    inventory.put("Fitness Books", 645);
+                    inventory.put("Kids Books", 527);
+                    inventory.put("Self Play Toys", 257);
+                    inventory.put("Game Console Toys", 837);
+                    inventory.put("Transportation Toys", 987);
+                    inventory.put("Cloth Covered Toys", 5466);
+                    inventory.put("TeddyBare", 784);
+                    inventory.put("Trucks", 9127);
+                    inventory.put("Planes", 6787);
+                    inventory.put("Play Kitchen", 239);
+
+
+                    System.out.println(inventory);
+
+                case 7:
                     System.out.println("Thank you  visiting the our Mall!!");
                     System.exit(0);
                 default:
                     System.out.println("Please pick either (1 - 4)");
+
+
             }
         }
     }
-
-
 
 
     //Methods
@@ -96,17 +165,16 @@ public class Main {
     }
 
 
+    //  public static void addStoresToMall() {
+    //      ArrayList<Store> store1= new ArrayList<>();
 
-  //  public static void addStoresToMall() {
-  //      ArrayList<Store> store1= new ArrayList<>();
+    //   store1.add();
+    // store1.add(ShoeStore);
+    // store1.add(ToyStore);
 
-     //   store1.add();
-       // store1.add(ShoeStore);
-       // store1.add(ToyStore);
-
-        //System.out.println(store1);
-        //Store.setstore(store1);
-   // }
+    //System.out.println(store1);
+    //Store.setstore(store1);
+    // }
     public static void register() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Lets get you registered!");
@@ -117,19 +185,24 @@ public class Main {
         System.out.println("Please enter your password: ");
         String password = String.valueOf(scanner.nextInt());
         Customer c1 = new Customer(firstName, lastName, password);
-       // Store.setVisitor(c1);
+        // Store.setVisitor(c1);
 
     }
+
     public static int pickStore() {
         Scanner input = new Scanner(System.in);
         System.out.println("""
-              Please pick an store to view from the list below:
-              1. BookStore
-              2. ShoeStore
-              3. ToyStore
-              4. Exit
-              """);
+                Please pick an store to view from the list below:
+                1. BookStore
+                2. ShoeStore
+                3. ToyStore
+                4. Maria Purchased Items below
+                5. Adam purchased items for the season
+                6. Available Inventory Items in Stores
+                7. Exit
+                """);
         return input.nextInt();
     }
+
 
 }
