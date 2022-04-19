@@ -49,7 +49,7 @@ public class ShoeStore extends Store {
         return "Ramadan \n + NewYear\n + Manager's Birthday\n + Thanksgiving";
     }
 
-    public boolean hignOnDiscounts(){
+    public boolean highOnDiscounts(){
         return true;
     }
 

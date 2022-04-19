@@ -1,5 +1,6 @@
 package mallpackage;
 
+import customerpackage.Customer;
 import mallpackage.Store;
 
 public class BookStore extends Store {
@@ -7,6 +8,7 @@ public class BookStore extends Store {
     private String bestBuyer;
     private Integer noOfLocations;
 
+    private Customer customer;
     //Constructors
 
     public BookStore(String storeId, String name, int storeSize, String taxId, String bestBuyer, Integer noOfLocations) {
